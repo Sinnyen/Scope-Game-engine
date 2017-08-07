@@ -1,0 +1,6 @@
+﻿  window.cpp
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+window.obj : error LNK2019: unresolved external symbol __imp__glewInit@0 referenced in function "private: bool __thiscall Scope::graphics::Window::init(void)" (?init@Window@graphics@Scope@@AAE_NXZ)
+C:\Users\Sinnyen\Desktop\gameTest\Linkingtest\\libraries\glew32.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:\Users\Sinnyen\Desktop\gameTest\Linkingtest\\libraries\glew32s.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:\Users\Sinnyen\Desktop\gameTest\Linkingtest\Debug\Linkingtest.exe : fatal error LNK1120: 1 unresolved externals
