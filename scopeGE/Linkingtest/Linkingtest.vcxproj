@@ -74,8 +74,8 @@
     <LibraryPath>$(SolutionDir)\libraries;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\Sinnyen\Desktop\gameTest\Linkingtest\includes;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Sinnyen\Desktop\gameTest\Linkingtest\libraries;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Sinnyen\Desktop\Scope game engine\Scope-Game-engine\scopeGE\includes;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Sinnyen\Desktop\Scope game engine\Scope-Game-engine\scopeGE\libraries;$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)$(Platform)bin\$(Configuration)</OutDir>
     <IntDir>$(Platform)bin\$(Configuration)\Intermediate</IntDir>
   </PropertyGroup>
