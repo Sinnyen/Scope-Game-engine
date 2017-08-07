@@ -1,6 +1,20 @@
-﻿  window.cpp
-LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Linkingtest.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  window.cpp
+  main.cpp
+  Generating Code...
+main.obj : error LNK2001: unresolved external symbol __imp____glewBindVertexArray
+main.obj : error LNK2001: unresolved external symbol __imp____glewGenVertexArrays
 window.obj : error LNK2019: unresolved external symbol __imp__glewInit@0 referenced in function "private: bool __thiscall Scope::graphics::Window::init(void)" (?init@Window@graphics@Scope@@AAE_NXZ)
-C:\Users\Sinnyen\Desktop\gameTest\Linkingtest\\libraries\glew32.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
-C:\Users\Sinnyen\Desktop\gameTest\Linkingtest\\libraries\glew32s.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
-C:\Users\Sinnyen\Desktop\gameTest\Linkingtest\Debug\Linkingtest.exe : fatal error LNK1120: 1 unresolved externals
+window.obj : error LNK2019: unresolved external symbol _glfwInit referenced in function "private: bool __thiscall Scope::graphics::Window::init(void)" (?init@Window@graphics@Scope@@AAE_NXZ)
+window.obj : error LNK2019: unresolved external symbol _glfwTerminate referenced in function "public: __thiscall Scope::graphics::Window::Window(char const *,int,int)" (??0Window@graphics@Scope@@QAE@PBDHH@Z)
+window.obj : error LNK2019: unresolved external symbol _glfwCreateWindow referenced in function "private: bool __thiscall Scope::graphics::Window::init(void)" (?init@Window@graphics@Scope@@AAE_NXZ)
+window.obj : error LNK2019: unresolved external symbol _glfwWindowShouldClose referenced in function "public: bool __thiscall Scope::graphics::Window::closed(void)const " (?closed@Window@graphics@Scope@@QBE_NXZ)
+window.obj : error LNK2019: unresolved external symbol _glfwSetWindowSizeCallback referenced in function "private: bool __thiscall Scope::graphics::Window::init(void)" (?init@Window@graphics@Scope@@AAE_NXZ)
+window.obj : error LNK2019: unresolved external symbol _glfwPollEvents referenced in function "public: void __thiscall Scope::graphics::Window::update(void)" (?update@Window@graphics@Scope@@QAEXXZ)
+window.obj : error LNK2019: unresolved external symbol _glfwMakeContextCurrent referenced in function "private: bool __thiscall Scope::graphics::Window::init(void)" (?init@Window@graphics@Scope@@AAE_NXZ)
+window.obj : error LNK2019: unresolved external symbol _glfwSwapBuffers referenced in function "public: void __thiscall Scope::graphics::Window::update(void)" (?update@Window@graphics@Scope@@QAEXXZ)
+C:\Users\Sinnyen\Desktop\Scope game engine\Scope-Game-engine\scopeGE\\libraries\glew32.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:\Users\Sinnyen\Desktop\Scope game engine\Scope-Game-engine\scopeGE\\libraries\glew32s.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:\Users\Sinnyen\Desktop\Scope game engine\Scope-Game-engine\scopeGE\\libraries\glfw3.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:\Users\Sinnyen\Desktop\Scope game engine\Scope-Game-engine\scopeGE\\libraries\glfw3dll.lib : warning LNK4272: library machine type 'x64' conflicts with target machine type 'X86'
+C:\Users\Sinnyen\Desktop\Scope game engine\Scope-Game-engine\scopeGE\Debug\scopeGE.exe : fatal error LNK1120: 11 unresolved externals
