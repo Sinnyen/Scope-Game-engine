@@ -4,7 +4,12 @@
 
 namespace Scope { namespace graphics {
 
-		void windowResize(GLFWwindow *window,int width, int height);
+	bool Window::m_keys[MAX_KEYS];
+	bool Window::m_MouseButton[MAX_BUTTONS];
+	double Window::mx;
+	double Window::my;
+	void window_Resize(GLFWwindow *window, int width, int height);
+
 
 		Window::Window(const char *title, int width, int height)
 		{
@@ -13,6 +18,17 @@ namespace Scope { namespace graphics {
 			m_Height = height;
 			if (!init())
 				glfwTerminate();
+
+
+			//initalize boolean arrys for input
+			for (int i = 0; i < MAX_KEYS; i++)
+			{
+				m_keys[i] = false;
+			}
+			for (int i = 0; i < MAX_BUTTONS; i++)
+			{
+				m_MouseButton[i] = false;
+			}
 		}
 
 		Window::~Window()
@@ -35,7 +51,10 @@ namespace Scope { namespace graphics {
 				return false;
 			}
 			glfwMakeContextCurrent(m_Window);
-			glfwSetWindowSizeCallback(m_Window, windowResize);
+			glfwSetWindowUserPointer(m_Window, this);
+			glfwSetWindowSizeCallback(m_Window, window_Resize);
+			glfwSetKeyCallback(m_Window, key_callback);
+			glfwSetMouseButtonCallback(m_Window, mouse_button_callback);
 
 			std::cout << "OpenGl" << glGetString(GL_VERSION) << std::endl;
 			
@@ -48,9 +67,20 @@ namespace Scope { namespace graphics {
 			return true;
 		}
 
-		void windowResize(GLFWwindow *window, int width, int height)
+		bool Window::isKeyPressed(unsigned int Keycode)
 		{
-			glViewport(0, 0, width, height);
+			if (Keycode >= MAX_KEYS)
+				return false;
+
+			return m_keys[Keycode];
+		}
+
+		bool Window::isMouseButtonPressed(unsigned int button)
+		{
+			if (button >= MAX_BUTTONS)
+				return false;
+
+			return m_MouseButton[button];
 		}
 
 		void Window::clear() const
@@ -69,5 +99,22 @@ namespace Scope { namespace graphics {
 			return glfwWindowShouldClose(m_Window) == 1;
 		}
 
+		void window_Resize(GLFWwindow *window, int width, int height)
+		{
+			glViewport(0, 0, width, height);
+		}
 
+		void key_callback(GLFWwindow* window, int Key, int scancode, int action, int mods)
+		{
+			Window* win = (Window*)glfwGetWindowUserPointer(window);
+			win->m_keys[Key] = action != GLFW_RELEASE;
+			
+		}
+
+		void mouse_button_callback(GLFWwindow* window, int Button, int action, int mods)
+		{
+			Window* win = (Window*)glfwGetWindowUserPointer(window);
+			win->m_MouseButton[Button] = action != GLFW_RELEASE;
+		}
+		
 }}
